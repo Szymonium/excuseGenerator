@@ -27,6 +27,7 @@ export default function Form() {
                     <option>trustworthy trickster</option>
                 </select>
                 <textarea placeholder={"Enter a comment"} required></textarea>
+                <input type={"checkbox"} name={"important"}/><label>Is important</label>
                 <button type={"submit"}>Submit</button>
             </form>
         </>
