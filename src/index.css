@@ -11,8 +11,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  user-select: none;
 }
-
+h1{
+  font-size: 210%;
+}
 body {
   margin: 0;
   display: flex;
@@ -20,15 +23,26 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  vertical-align: middle;
+  font-size: 70%;
+  filter: opacity(70%);
+}
 
-form span *{
+form input, select, textarea, button{
   padding: 5px;
   margin: 5px;
   vertical-align:middle;
   box-sizing:border-box;
   width: 50%;
 }
-
+#importantCheck input{
+  width:100%;
+}
 form input[type="range"]{
   appearance: none;
 }

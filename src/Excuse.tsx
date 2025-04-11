@@ -68,7 +68,7 @@ export default function Excuse({excuse, excuses, setExcuses, excuseId}: ExcusePr
                 <u>
                     {excuseObj["important"] ? "IMPORTANT!" : ""}
                 </u> "{excuseObj["comment"]}"
-                - {excuseObj["creativity"].charAt(0).toUpperCase() + excuseObj["creativity"].slice(1)} author: {excuseObj["name"]} on {excuseObj["date"]}
+                - {excuseObj["creativity"].charAt(0).toUpperCase() + excuseObj["creativity"].slice(1)}, author: {excuseObj["name"]}, on {excuseObj["date"]}.
                 <br/>
                 (Real reason: {excuseObj["reason"]}, {excuseObj["credibility"]}/10 people would believe)
             </p>
