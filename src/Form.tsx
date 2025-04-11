@@ -4,17 +4,14 @@ import {useState} from "react";
 interface FormProps {
     excuses?: Array<string>,
     setExcuses: (value: (((prevState: Array<string>) => Array<string>) | Array<string>)) => void,
-    setForm?: (value: EventTarget) => void
+    setForm?: (value: EventTarget) => void,
 }
 
-export default function Form({excuses, setExcuses, setForm}: FormProps) {
+export default function Form({excuses, setExcuses}: FormProps) {
     const [range, setRange] = useState(0);
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        if (setForm) {
-            setForm(e.target);
-        }
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
