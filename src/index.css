@@ -47,6 +47,31 @@ form input[type="range"]{
   appearance: none;
 }
 
+section#excuse{
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 50%;
+  margin: auto;
+}
+section#excuse button{
+  margin: 0;
+  border-bottom: none;
+}
+
+section#excuse button#editButton{
+  border-left: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+section#excuse button#deleteButton{
+  border-right: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 form input[type="checkbox"]{ /*to fake border bo checkboxow sie nie da za huj stylowac a jarek wymaga :( */
   -webkit-box-shadow: 0px 0px 0px 1px white;
   -moz-box-shadow: 0px 0px 0px 1px white;
@@ -61,6 +86,3 @@ form input, select, textarea, button{
 form *:focus{
   outline: none;
 }
-
-
-
