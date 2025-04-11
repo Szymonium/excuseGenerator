@@ -45,13 +45,7 @@ export default function Excuse({excuse, excuses, setExcuses, excuseId}: ExcusePr
         });
 
 
-        if (excuses) {
-            const newArray = excuses.map((value, index) => index == excuseId ? JSON.stringify(cloneObj) : value)
-            if (setExcuses) {
-                setExcuses(newArray)
-            }
-            localStorage.setItem("excuses", JSON.stringify(newArray))
-        }
+        handleDelete()
     }
 
     function handleDelete() {
@@ -66,7 +60,7 @@ export default function Excuse({excuse, excuses, setExcuses, excuseId}: ExcusePr
     }
 
     return (
-        <section>
+        <section id={"excuse"}>
             <p>
                 <u>
                     {excuseObj["important"] ? "IMPORTANT!" : ""}
@@ -75,8 +69,8 @@ export default function Excuse({excuse, excuses, setExcuses, excuseId}: ExcusePr
                 <br/>
                 (Real reason: {excuseObj["reason"]}, {excuseObj["credibility"]}/10 people would believe)
             </p>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleEdit} id={"editButton"}>Edit</button>
+            <button onClick={handleDelete} id={"deleteButton"}>Delete</button>
         </section>
     )
 }
