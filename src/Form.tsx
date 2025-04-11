@@ -4,14 +4,17 @@ import {useState} from "react";
 interface FormProps {
     excuses?: Array<string>,
     setExcuses: (value: (((prevState: Array<string>) => Array<string>) | Array<string>)) => void,
-    setForm?: (value: EventTarget) => void,
+    setForm?: (value: EventTarget) => void
 }
 
-export default function Form({excuses, setExcuses}: FormProps) {
+export default function Form({excuses, setExcuses, setForm}: FormProps) {
     const [range, setRange] = useState(0);
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        if (setForm) {
+            setForm(e.target);
+        }
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
@@ -30,7 +33,7 @@ export default function Form({excuses, setExcuses}: FormProps) {
     }
 
     return (
-        <>
+        <><h1>Excuse Generator<sub>v2</sub></h1>
             <form onSubmit={handleSubmit}>
                 <input type={"text"} name={"name"} placeholder={"Enter name"} required/>
                 <select name={"reason"} required>
@@ -39,13 +42,11 @@ export default function Form({excuses, setExcuses}: FormProps) {
                     <option>doctor's appointment</option>
                     <option>oversleeping</option>
                     <option>lack of will to live</option>
-                </select>
-                <label>Credibility level</label><input type={"range"} name={"credibility"} min={0} max={10}
-                                                                            defaultValue={range} onChange={(e) => {
+                </select><br />
+                <label>Credibility level: {range}</label><br /><input type={"range"} name={"credibility"} min={0} max={10}
+                                                       defaultValue={0} onChange={(e) => {
                 setRange(parseInt(e.target.value))
-            }} required/>
-                <output>{range}</output>
-                <label>Date of event</label><input type={"date"} name={"date"} required/>
+            }} required/><input type={"date"} name={"date"} required/>
                 <select name={"creativity"} required>
                     <option selected hidden value={""}>Choose creativity level</option>
                     <option>lefty liar</option>
@@ -54,10 +55,11 @@ export default function Form({excuses, setExcuses}: FormProps) {
                     <option>master manipulator</option>
                     <option>trustworthy trickster</option>
                 </select>
-                <textarea placeholder={"Enter a comment"} required name={"comment"}></textarea>
-                <input type={"checkbox"} name={"important"}/><label>Is important</label>
+                <textarea placeholder={"Enter a comment"} required name={"comment"}></textarea><br/>
+                <div id={"importantCheck"}><label>Is important:<input type={"checkbox"} name={"important"}/></label></div>
                 <button type={"submit"}>Submit</button>
             </form>
+            <footer>copyright &copy; szymon karpiszen julian kulwicki 2025 all rights reserved</footer>
         </>
     )
 }
