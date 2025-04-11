@@ -1,1 +1,1 @@
-![me](assets/ryba.jpg)
+![me](src/assets/ryba.jpg)
