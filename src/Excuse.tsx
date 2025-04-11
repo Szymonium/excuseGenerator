@@ -31,8 +31,9 @@ export default function Excuse({excuse, excuses, setExcuses, excuseId}: ExcusePr
             else if (el.type === "range") {
                 const rangeInput = el as HTMLInputElement;
                 rangeInput.value = String(cloneObj[name]);
-                console.log(rangeInput)
-                console.log(rangeInput.dispatchEvent(new Event("change")))
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                form.querySelector("output").innerHTML = String(cloneObj[name])
             }
             // For other inputs (text, select, textarea)
             else {
@@ -63,7 +64,7 @@ export default function Excuse({excuse, excuses, setExcuses, excuseId}: ExcusePr
     }
 
     return (
-        <>
+        <section>
             <p>
                 <u>
                     {excuseObj["important"] ? "IMPORTANT!" : ""}
@@ -74,6 +75,6 @@ export default function Excuse({excuse, excuses, setExcuses, excuseId}: ExcusePr
             </p>
             <button onClick={handleEdit}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
-        </>
+        </section>
     )
 }

@@ -41,7 +41,7 @@ export default function Form({excuses, setExcuses}: FormProps) {
                     <option>lack of will to live</option>
                 </select>
                 <label>Credibility level</label><input type={"range"} name={"credibility"} min={0} max={10}
-                                                       defaultValue={0} onChange={(e) => {
+                                                                            defaultValue={range} onChange={(e) => {
                 setRange(parseInt(e.target.value))
             }} required/>
                 <output>{range}</output>
